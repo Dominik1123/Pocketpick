@@ -55,8 +55,12 @@ class DownloadManager(QtCore.QObject):
 
 			self.heroes.append(Hero(name=hero['name'], img_path=img_path, related_to=related_to))
 
-			# sleep(pause_sec)
-			# DataManager.save_image(wi.load_image(hero['img_url']), img_path)
+			try:
+				with open(img_path, 'rb') as fp:
+					pass
+			except IOError:  # image file not found
+				sleep(pause_sec)
+				DataManager.save_image(wi.load_image(hero['img_url']), img_path)
 
 			self.hero_loaded.emit(hero['name'], i+1, len(heroes_all))
 

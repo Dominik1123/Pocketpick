@@ -40,20 +40,3 @@ class AllHeroesParser(Parser):
 class HeroDetailParser(Parser):
 	def __init__(self):
 		self.regex=r"""<td><a class="link-type-hero" href="(?P<url>[\-a-zA-Z/]+)">(?P<name>[a-zA-Z\s'\-]+)</a></td><td>(?P<advantage>-?[.0-9]+)%<div class="bar bar-default"><div class="segment segment-advantage" style="width: [.0-9]+%;"></div></div></td>"""
-
-
-# parser = AllHeroesParser()
-# with open('example.html', 'r') as fp:
-# 	heroes = parser.parse(fp.read())
-
-# # for hero in heroes:
-# # 	print hero
-# print len(heroes)
-
-# parser = HeroDetailParser()
-# with open('example_hero_detail.html', 'r') as fp:
-# 	heroes = parser.parse(fp.read())
-
-# for hero in heroes:
-# 	print hero
-# print len(heroes)

@@ -114,7 +114,7 @@ class MainWidget(QtGui.QWidget):
 		self.heroinfo.reconnect_all()
 		try:
 			self.cycle.next()
-		except StopIteration:  # last hero was selected; TODO: disable all buttons
+		except StopIteration:  # last hero was selected;
 			self.heropool.disconnect_all()
 		else:
 			self.picklist.new_estimation(self.estimator.estimate_heroes())

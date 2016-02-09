@@ -28,7 +28,7 @@ class HeroButton(QtGui.QPushButton):
 		super(HeroButton, self).__init__(parent)
 
 		self.setStyleSheet('HeroButton { background-color: white; }')
-		self.setFixedSize(64, 36)  # set to image dimensions
+		self.setFixedSize(64, 36)
 
 		self.set_hero(hero)
 

@@ -43,5 +43,5 @@ class DataManager:
 
 	@staticmethod
 	def convert_url_to_img_path(url, img_url):
-		# return path.join('img', url.split('/')[-1]) + '.' + img_url.split('.')[-1]
+		# return path.join('.', 'img', url.split('/')[-1]) + '.' + img_url.split('.')[-1]
 		return './'+'/'.join(['img', url.split('/')[-1]]) + '.' + img_url.split('.')[-1]

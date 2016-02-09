@@ -34,7 +34,7 @@ class HeroPoolView(QtGui.QWidget):
 		try:
 			self.heroes = DataManager().load_hero_data()
 		except IOError:
-			info = QtGui.QMessageBox('Datafile not found', 'I couldn\'t load the data locally, do you want me to download it from the website?', QtGui.QMessageBox.Information, QtGui.QMessageBox.Ok, QtGui.QMessageBox.Cancel, QtGui.QMessageBox.NoButton, self)
+			info = QtGui.QMessageBox('Datafile not found', 'I couldn\'t load the data file from within the current directory, do you want me to download it from the website?', QtGui.QMessageBox.Information, QtGui.QMessageBox.Ok, QtGui.QMessageBox.Cancel, QtGui.QMessageBox.NoButton, self)
 			if info.exec_() == QtGui.QMessageBox.Ok:
 				self.download_data()
 		else:

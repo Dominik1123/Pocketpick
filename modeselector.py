@@ -28,10 +28,18 @@ class ModeSelector(QtGui.QWidget):
 		self.ranked_captains_mode_button = QtGui.QPushButton("Captains Mode", self)
 
 		layout = QtGui.QVBoxLayout()
-		# layout.addStretch(1)
-		layout.addWidget(self.ranked_all_pick_button)
-		layout.addWidget(self.ranked_captains_mode_button)
-		# layout.addStretch(1)
+		layout.addStretch(1)
+		h_layout = QtGui.QHBoxLayout()
+		h_layout.addStretch(1)
+		h_layout.addWidget(self.ranked_all_pick_button, 0)
+		h_layout.addStretch(1)
+		layout.addLayout(h_layout, 0)
+		h_layout = QtGui.QHBoxLayout()
+		h_layout.addStretch(1)
+		h_layout.addWidget(self.ranked_captains_mode_button, 0)
+		h_layout.addStretch(1)
+		layout.addLayout(h_layout, 0)
+		layout.addStretch(1)
 		self.setLayout(layout)
 
 
