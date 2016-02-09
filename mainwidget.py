@@ -85,13 +85,13 @@ class MainWidget(QtGui.QWidget):
 		v_layout = QtGui.QVBoxLayout()
 
 		h_layout = QtGui.QHBoxLayout()
-		h_layout.addWidget(self.radiant_pick)
-		h_layout.addWidget(self.dire_pick)
+		h_layout.addWidget(self.radiant_ban)
+		h_layout.addWidget(self.dire_ban)
 		v_layout.addLayout(h_layout)
 
 		h_layout = QtGui.QHBoxLayout()
-		h_layout.addWidget(self.radiant_ban)
-		h_layout.addWidget(self.dire_ban)
+		h_layout.addWidget(self.radiant_pick)
+		h_layout.addWidget(self.dire_pick)
 		v_layout.addLayout(h_layout)
 
 		self.layout().addLayout(v_layout, 1, 1, 1, 1)

@@ -29,7 +29,9 @@ class HeroInfoView(QtGui.QWidget):
 		layout.addWidget(HeroButton(None, self), 0, 0, 1, 1)
 		for i in range(16):
 			layout.addWidget(HeroButton(None, self), 1, i, 1, 1)
-			layout.addWidget(QtGui.QLabel(self), 2, i, 1, 1)
+			adv_label = QtGui.QLabel(self)
+			adv_label.setFixedSize(64, 36)
+			layout.addWidget(adv_label, 2, i, 1, 1)
 		self.setLayout(layout)
 
 	def show(self, hero):
@@ -41,7 +43,7 @@ class HeroInfoView(QtGui.QWidget):
 			self.layout().itemAtPosition(0, 0).widget().left_click.connect(self.parentWidget().hero_selected)
 		self.layout().itemAtPosition(0, 0).widget().right_click.connect(self.parentWidget().show_hero_info)
 
-		for i, (hero_name, advantage) in enumerate(sorted(hero.related_to.iteritems(), key=lambda x: float(x[1]))):
+		for i, (hero_name, advantage) in enumerate(sorted(hero.related_to.iteritems(), key=lambda x: float(x[1]), reverse=True)):
 			self.layout().itemAtPosition(1, i).widget().set_hero(self.parentWidget().heropool.get_hero_by_name(hero_name))
 
 			if self.parentWidget().heropool.get_hero_by_name(hero_name).available:

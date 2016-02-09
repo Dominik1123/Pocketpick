@@ -31,8 +31,11 @@ class Cycle:
 			self.current_step = self.steps[self.current_index]
 		except IndexError:
 			raise StopIteration()
+		else:
+			self.mark_current_selection()
 
 	def previous(self):
+		self.unmark_current_selection()
 		self.current_index -= 1
 		self.current_step = self.steps[self.current_index]
 
@@ -46,6 +49,12 @@ class Cycle:
 			hero_button = previous_selection.layout().itemAt(previous_selection.n_heroes).widget()
 			previous_selection.connect_herobutton(hero_button)
 
+	def mark_current_selection(self):
+		self.current_selection().mark()
+
+	def unmark_current_selection(self):
+		self.current_selection().unmark()
+
 class RankedAllPickCycle(Cycle):
 	def __init__(self, selections):
 		Cycle.__init__(self, selections)
@@ -53,6 +62,7 @@ class RankedAllPickCycle(Cycle):
 		self.steps = ['Radiant Pick', 'Dire Pick', 'Radiant Pick', 'Dire Pick', 'Radiant Pick', 'Dire Pick', 'Radiant Pick', 'Dire Pick', 'Radiant Pick', 'Dire Pick']
 		self.current_index = 0
 		self.current_step = self.steps[self.current_index]
+		self.mark_current_selection()
 
 class RankedCaptainsModeCycle(Cycle):
 	def __init__(self, selections):
@@ -61,3 +71,4 @@ class RankedCaptainsModeCycle(Cycle):
 		self.steps = ['Radiant Ban', 'Dire Ban', 'Radiant Ban', 'Dire Ban', 'Radiant Pick', 'Dire Pick', 'Dire Pick', 'Radiant Pick', 'Radiant Ban', 'Dire Ban', 'Radiant Ban', 'Dire Ban', 'Dire Pick', 'Radiant Pick', 'Dire Pick', 'Radiant Pick', 'Dire Ban', 'Radiant Ban', 'Dire Pick', 'Radiant Pick']
 		self.current_index = 0
 		self.current_step = self.steps[self.current_index]
+		self.mark_current_selection()

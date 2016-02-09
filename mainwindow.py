@@ -27,3 +27,4 @@ class MainWindow(QtGui.QMainWindow):
 
 		self.mainwidget = MainWidget(self)
 		self.setCentralWidget(self.mainwidget)
+		self.setWindowTitle('Pocketpick')

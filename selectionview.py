@@ -62,3 +62,9 @@ class SelectionView(QtGui.QWidget):
 				self.layout().itemAt(i).widget().left_click.disconnect(self.parentWidget().hero_back_to_pool)
 			except TypeError:  # already disconnected
 				pass
+
+	def mark(self):
+		self.layout().itemAt(self.n_heroes+1).widget().setStyleSheet("HeroButton { background-color: white; border: 3px solid red; }")
+
+	def unmark(self):
+		self.layout().itemAt(self.n_heroes+1).widget().setStyleSheet("HeroButton { background-color: white; }")

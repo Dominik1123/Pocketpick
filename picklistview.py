@@ -42,6 +42,7 @@ class PickListView(QtGui.QScrollArea):
 			h_layout.addWidget(pb)
 			adv_label = QtGui.QLabel('%.2f' % advantage, self)
 			adv_label.setStyleSheet('QLabel { border: 1px solid black; }')
+			adv_label.setFixedSize(64, 36)
 			h_layout.addWidget(adv_label)
 			self.view.layout().addLayout(h_layout)
 
